@@ -39,6 +39,14 @@
 	--color-popover-foreground: var(--mauve-12);
 	--color-border: var(--mauve-6);
 	--color-border-subtle: var(--mauve-4);
+	--color-rule: color-mix(in oklab, var(--mauve-6) 42%, var(--mauve-1));
+	--color-rule-fill: color-mix(in oklab, var(--gold-3) 10%, var(--mauve-1));
+	--color-rule-pattern: color-mix(in oklab, var(--gold-8) 18%, transparent);
+	--color-screw-hi: color-mix(in oklab, var(--gold-4) 55%, #fff);
+	--color-screw-mid: var(--gold-8);
+	--color-screw-lo: var(--gold-11);
+	--color-screw-slot: color-mix(in oklab, var(--gold-12) 62%, #1a1410);
+	--color-screw-washer: var(--gold-7);
 	--color-input: var(--mauve-6);
 	--color-ring: var(--gold-8);
 	/* Dark solid + light label — gold-9 + white fails AA in light */
@@ -56,6 +64,23 @@
 	--color-hero-mesh-a: color-mix(in oklab, var(--gold-4) 50%, transparent);
 	--color-hero-mesh-b: color-mix(in oklab, var(--mauve-3) 75%, transparent);
 	--color-hero-mesh-c: color-mix(in oklab, var(--gold-2) 65%, transparent);
+	--color-hero-atmosphere: color-mix(in oklab, var(--color-background) 10%, transparent);
+	--hero-cover-grain-opacity: 0.18;
+	--hero-cover-mask: linear-gradient(
+		180deg,
+		#000 40%,
+		rgb(0 0 0 / 0.7) 64%,
+		rgb(0 0 0 / 0.22) 84%,
+		transparent 100%
+	);
+	--hero-cover-scrim: linear-gradient(
+		180deg in oklab,
+		transparent 26%,
+		color-mix(in oklab, var(--color-background) 18%, transparent) 48%,
+		color-mix(in oklab, var(--color-background) 48%, transparent) 68%,
+		color-mix(in oklab, var(--color-background) 82%, transparent) 86%,
+		var(--color-background) 100%
+	);
 	--color-image-outline: oklch(0 0 0 / 0.08);
 	--color-portrait-ring: color-mix(in oklab, var(--gold-8) 55%, transparent);
 	--color-portrait-rim: color-mix(in oklab, var(--gold-7) 70%, var(--mauve-5));
@@ -99,6 +124,14 @@
 	--color-popover-foreground: var(--mauve-12);
 	--color-border: var(--mauve-6);
 	--color-border-subtle: var(--mauve-4);
+	--color-rule: color-mix(in oklab, var(--mauve-6) 55%, var(--mauve-1));
+	--color-rule-fill: color-mix(in oklab, var(--gold-4) 12%, var(--mauve-1));
+	--color-rule-pattern: color-mix(in oklab, var(--gold-8) 22%, transparent);
+	--color-screw-hi: var(--gold-10);
+	--color-screw-mid: var(--gold-8);
+	--color-screw-lo: var(--gold-5);
+	--color-screw-slot: color-mix(in oklab, var(--gold-2) 55%, #000);
+	--color-screw-washer: var(--gold-7);
 	--color-input: var(--mauve-6);
 	--color-ring: var(--gold-8);
 	/* gold-12 inverts in dark (light cream) + gold-1 (near-black) text */
@@ -116,6 +149,14 @@
 	--color-hero-mesh-a: color-mix(in oklab, var(--gold-4) 40%, transparent);
 	--color-hero-mesh-b: color-mix(in oklab, var(--mauve-3) 65%, transparent);
 	--color-hero-mesh-c: color-mix(in oklab, var(--gold-2) 55%, transparent);
+	--color-hero-atmosphere: color-mix(in oklab, var(--color-overlay) 28%, transparent);
+	--hero-cover-grain-opacity: 0.32;
+	--hero-cover-mask: none;
+	--hero-cover-scrim: linear-gradient(
+		180deg in oklab,
+		transparent 35%,
+		var(--color-background) 100%
+	);
 	--color-image-outline: oklch(1 0 0 / 0.1);
 	--color-portrait-ring: color-mix(in oklab, var(--gold-8) 45%, transparent);
 	--color-portrait-rim: color-mix(in oklab, var(--gold-8) 55%, var(--mauve-5));
@@ -127,6 +168,16 @@
 	--radius-md: 10px;
 	--radius-lg: 14px;
 	--ease-out: cubic-bezier(0.2, 0, 0, 1);
-	--space-page: clamp(1.25rem, 4vw, 2.5rem);
+	--space-page: max(
+		clamp(1.5rem, 4.5vw, 2.5rem),
+		env(safe-area-inset-left, 0px),
+		env(safe-area-inset-right, 0px)
+	);
+	--space-inner: 1rem;
+	--content-max: 72rem;
+	--section-rule-gap: 1.125rem;
+	--frame-joint: 1.125rem;
 	--measure: 65ch;
+	--hero-avatar-size: min(11rem, 42vw);
+	--hero-cover-height: clamp(14rem, 38vw, 22rem);
 }

@@ -8,9 +8,19 @@ import ThemeToggle from './ThemeToggle.svelte';
 
 <style>
 	.theme-float {
+		--theme-end: max(1rem, env(safe-area-inset-right));
 		position: fixed;
 		top: max(1rem, env(safe-area-inset-top));
-		inset-inline-end: max(1rem, env(safe-area-inset-right));
+		inset-inline-end: var(--theme-end);
 		z-index: 40;
+	}
+
+	@media (max-width: 72rem) {
+		.theme-float {
+			--theme-end: max(
+				calc(var(--space-page) + 0.75rem),
+				env(safe-area-inset-right)
+			);
+		}
 	}
 </style>

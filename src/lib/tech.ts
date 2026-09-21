@@ -31,5 +31,5 @@ const SKILL_ICONS: Record<string, IconSvgFn> = {
 export function skillIconSvg(name: string): string | null {
 	const icon = SKILL_ICONS[name];
 	if (!icon) return null;
-	return iconSvg(icon, { size: 14 });
+	return iconSvg(icon, { size: 18 });
 }

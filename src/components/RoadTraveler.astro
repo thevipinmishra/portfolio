@@ -1,0 +1,208 @@
+---
+const id = 'rt';
+---
+
+<div class="road-runner">
+	<div class="road-face">
+		<span class="road-shadow"></span>
+		<svg class="road-car" viewBox="0 0 46 18" width="46" height="18">
+			<defs>
+				<linearGradient id={`${id}-body`} x1="18%" y1="8%" x2="86%" y2="92%">
+					<stop
+						offset="0%"
+						stop-color="color-mix(in oklab, var(--color-screw-hi) 58%, var(--color-screw-mid))"
+					></stop>
+					<stop offset="46%" stop-color="var(--color-screw-mid)"></stop>
+					<stop offset="100%" stop-color="var(--color-screw-lo)"></stop>
+				</linearGradient>
+				<linearGradient id={`${id}-cabin`} x1="30%" y1="0%" x2="70%" y2="100%">
+					<stop offset="0%" stop-color="var(--color-screw-hi)"></stop>
+					<stop
+						offset="100%"
+						stop-color="color-mix(in oklab, var(--color-screw-mid) 70%, var(--color-screw-lo))"
+					></stop>
+				</linearGradient>
+				<radialGradient id={`${id}-hub`} cx="36%" cy="30%" r="72%">
+					<stop
+						offset="0%"
+						stop-color="color-mix(in oklab, var(--color-screw-hi) 72%, var(--color-screw-mid))"
+					></stop>
+					<stop offset="42%" stop-color="var(--color-screw-mid)"></stop>
+					<stop offset="100%" stop-color="var(--color-screw-lo)"></stop>
+				</radialGradient>
+			</defs>
+
+			<g transform="translate(7.15 8.55)">
+				<g class="road-key">
+					<rect
+						x="-4.35"
+						y="-0.38"
+						width="4.35"
+						height="0.76"
+						rx="0.32"
+						fill="var(--color-screw-lo)"
+					></rect>
+					<circle
+						cx="-5.85"
+						cy="0"
+						r="2.15"
+						fill="var(--color-screw-mid)"
+						stroke="color-mix(in oklab, var(--color-screw-lo) 55%, #000)"
+						stroke-width="0.55"
+					></circle>
+					<circle cx="-5.85" cy="0" r="0.82" fill="var(--color-screw-slot)"></circle>
+					<rect
+						x="-6.55"
+						y="-2.55"
+						width="1.4"
+						height="0.85"
+						rx="0.28"
+						fill="var(--color-screw-lo)"
+					></rect>
+				</g>
+			</g>
+
+			<path
+				d="M8.05 12.15V9.2c0-.82.72-1.48 1.62-1.52l6.05-.22 1.02-3.55c.32-.88 1.14-1.38 2.16-1.38h7.85c1.42 0 2.32.72 2.78 1.82L31.6 7.55l7.55.22c1.78.1 2.78.98 2.78 2.32v1.95c0 .68-.58 1.08-1.42 1.08H8.95c-.72 0-1.12-.48-1.12-1.12z"
+				fill={`url(#${id}-body)`}
+				stroke="color-mix(in oklab, var(--color-screw-lo) 58%, #000)"
+				stroke-width="0.55"
+				stroke-linejoin="round"
+			></path>
+
+			<path
+				d="M16.55 7.48l.92-3.42c.28-.78 1.02-1.22 1.92-1.22h7.55c1.28 0 2.08.64 2.48 1.62l1.38 2.95z"
+				fill={`url(#${id}-cabin)`}
+				stroke="color-mix(in oklab, var(--color-screw-lo) 50%, #000)"
+				stroke-width="0.45"
+				stroke-linejoin="round"
+			></path>
+
+			<path
+				d="M18.15 7.2l.7-2.55c.12-.42.48-.68.92-.68h3.05v3.23z"
+				fill="var(--color-screw-slot)"
+				opacity="0.92"
+			></path>
+			<path
+				d="M23.05 3.97h3.15c.52 0 .88.28 1.05.72l.92 2.51h-5.12z"
+				fill="var(--color-screw-slot)"
+				opacity="0.92"
+			></path>
+			<line
+				x1="22.92"
+				y1="3.97"
+				x2="22.92"
+				y2="7.2"
+				stroke="color-mix(in oklab, var(--color-screw-hi) 55%, var(--color-screw-mid))"
+				stroke-width="0.4"
+			></line>
+
+			<path
+				d="M9.55 8.05h29.8"
+				fill="none"
+				stroke="var(--color-screw-hi)"
+				stroke-width="0.42"
+				opacity="0.38"
+			></path>
+			<path
+				d="M8.7 12.55h32.2"
+				fill="none"
+				stroke="color-mix(in oklab, var(--color-screw-lo) 45%, #000)"
+				stroke-width="0.45"
+				opacity="0.35"
+			></path>
+
+			<circle
+				cx="40.55"
+				cy="10.35"
+				r="0.85"
+				fill="color-mix(in oklab, var(--color-screw-hi) 70%, #fff)"
+				stroke="color-mix(in oklab, var(--color-screw-lo) 40%, #000)"
+				stroke-width="0.28"
+			></circle>
+			<circle cx="8.85" cy="10.55" r="0.48" fill="var(--color-screw-slot)" opacity="0.85"
+			></circle>
+
+			<ellipse
+				cx="24"
+				cy="4.15"
+				rx="6.4"
+				ry="0.85"
+				fill="var(--color-screw-hi)"
+				opacity="0.28"
+			></ellipse>
+
+			<g transform="translate(12.15 13.85)">
+				<g class="road-wheel">
+					<circle
+						cx="0"
+						cy="0"
+						r="3.55"
+						fill="var(--color-screw-slot)"
+						stroke="color-mix(in oklab, var(--color-screw-lo) 50%, #000)"
+						stroke-width="0.45"
+					></circle>
+					<circle cx="0" cy="0" r="2.42" fill={`url(#${id}-hub)`}></circle>
+					<circle cx="0" cy="0" r="0.95" fill="var(--color-screw-hi)" opacity="0.55"
+					></circle>
+					<rect
+						x="-1.85"
+						y="-0.42"
+						width="3.7"
+						height="0.84"
+						rx="0.32"
+						fill="var(--color-screw-slot)"
+					></rect>
+				</g>
+			</g>
+			<g transform="translate(32.35 13.85)">
+				<g class="road-wheel">
+					<circle
+						cx="0"
+						cy="0"
+						r="3.55"
+						fill="var(--color-screw-slot)"
+						stroke="color-mix(in oklab, var(--color-screw-lo) 50%, #000)"
+						stroke-width="0.45"
+					></circle>
+					<circle cx="0" cy="0" r="2.42" fill={`url(#${id}-hub)`}></circle>
+					<circle cx="0" cy="0" r="0.95" fill="var(--color-screw-hi)" opacity="0.55"
+					></circle>
+					<rect
+						x="-1.85"
+						y="-0.42"
+						width="3.7"
+						height="0.84"
+						rx="0.32"
+						fill="var(--color-screw-slot)"
+					></rect>
+				</g>
+			</g>
+		</svg>
+	</div>
+</div>
+
+<script is:inline>
+	(function () {
+		var reduced = false;
+		var desktop = false;
+		try {
+			reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			desktop = window.matchMedia('(min-width: 48rem)').matches;
+		} catch (_) {}
+		if (reduced || !desktop) return;
+
+		var script = document.currentScript;
+		var stage = script && script.parentElement && script.parentElement.closest
+			? script.parentElement.closest('.road-stage')
+			: document.querySelector('.road-stage');
+		if (!stage) return;
+
+		function sync() {
+			stage.classList.toggle('is-paused', document.hidden);
+		}
+
+		document.addEventListener('visibilitychange', sync);
+		sync();
+	})();
+</script>

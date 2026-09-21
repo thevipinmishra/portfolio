@@ -1,0 +1,181 @@
+---
+interface Props {
+	name: string;
+	class?: string;
+	style?: string | Record<string, string | number | undefined>;
+}
+
+const { name, class: className, style } = Astro.props;
+
+let letterIndex = 0;
+const chars = [...name].map((ch) => {
+	if (ch === ' ') return { ch, i: -1 };
+	const i = letterIndex;
+	letterIndex += 1;
+	return { ch, i };
+});
+---
+
+<h1 class:list={[className, 'sci-name']} style={style} aria-label={name}>
+	{
+		chars.map(({ ch, i }) =>
+			i < 0 ? (
+				<span class="sci-name-space" aria-hidden="true">
+					{'\u00A0'}
+				</span>
+			) : (
+				<span class="sci-name-char" style={`--i: ${i}`} data-char={ch} aria-hidden="true">
+					<span class="sci-name-glyph">{ch}</span>
+				</span>
+			),
+		)
+	}
+</h1>
+
+<script is:inline>
+	(function () {
+		var reduced = false;
+		try {
+			reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		} catch (_) {}
+		if (reduced) return;
+
+		var heading = document.currentScript && document.currentScript.previousElementSibling;
+		if (!heading || !heading.classList || !heading.classList.contains('sci-name')) {
+			heading = document.querySelector('.sci-name');
+		}
+		if (!heading) return;
+
+		var cs = getComputedStyle(heading);
+		var base = parseFloat(cs.getPropertyValue('--sci-base')) || 40;
+		var stagger = parseFloat(cs.getPropertyValue('--sci-stagger')) || 42;
+		var upper = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+		var lower = 'abcdefghjkmnpqrstuvwxyz';
+		var tick = 38;
+		var ticks = 7;
+		var chars = heading.querySelectorAll('.sci-name-char');
+
+		for (var n = 0; n < chars.length; n++) {
+			(function (el) {
+				var target = el.getAttribute('data-char') || '';
+				var glyph = el.querySelector('.sci-name-glyph');
+				if (!glyph || !target) return;
+
+				var i = parseInt(el.style.getPropertyValue('--i'), 10);
+				if (isNaN(i)) i = 0;
+				var pool = target === target.toUpperCase() ? upper : lower;
+				var start = performance.now() + base + i * stagger;
+				var lockAt = start + tick * ticks;
+				var lastTick = -1;
+
+				el.classList.add('is-decoding');
+
+				function frame(now) {
+					if (now >= lockAt) {
+						glyph.textContent = target;
+						el.classList.remove('is-decoding');
+						el.classList.add('is-locked');
+						return;
+					}
+					if (now >= start) {
+						var step = Math.floor((now - start) / tick);
+						if (step !== lastTick) {
+							lastTick = step;
+							var next = pool[(Math.random() * pool.length) | 0];
+							if (next === target) next = pool[(Math.random() * pool.length) | 0];
+							glyph.textContent = next;
+						}
+					}
+					requestAnimationFrame(frame);
+				}
+
+				requestAnimationFrame(frame);
+			})(chars[n]);
+		}
+	})();
+</script>
+
+<style>
+	.sci-name {
+		--sci-base: 40ms;
+		--sci-stagger: 42ms;
+		--sci-duration: 560ms;
+		--sci-ease: cubic-bezier(0.2, 0, 0, 1);
+	}
+
+	.sci-name-char {
+		display: inline-grid;
+		justify-items: center;
+		vertical-align: baseline;
+	}
+
+	.sci-name-char::before {
+		content: attr(data-char);
+		grid-area: 1 / 1;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	.sci-name-glyph {
+		grid-area: 1 / 1;
+		color: inherit;
+	}
+
+	.sci-name-space {
+		white-space: pre;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.sci-name-char {
+			opacity: 0;
+			transform: translateY(12px);
+			filter: blur(4px);
+			animation-name: sci-name-in;
+			animation-duration: var(--sci-duration);
+			animation-delay: calc(var(--sci-base) + var(--i) * var(--sci-stagger));
+			animation-timing-function: var(--sci-ease);
+			animation-fill-mode: both;
+		}
+
+		.sci-name-glyph {
+			transition-property: color, text-shadow;
+			transition-duration: 420ms;
+			transition-timing-function: var(--sci-ease);
+		}
+
+		.sci-name-char.is-decoding .sci-name-glyph {
+			color: var(--color-accent-text);
+			text-shadow: 0 0 14px color-mix(in oklab, var(--gold-8) 50%, transparent);
+		}
+
+		.sci-name-char.is-locked .sci-name-glyph {
+			color: inherit;
+			animation-name: sci-name-lock;
+			animation-duration: 420ms;
+			animation-timing-function: var(--sci-ease);
+			animation-fill-mode: both;
+		}
+	}
+
+	@keyframes sci-name-in {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+			filter: blur(4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+			filter: blur(0);
+		}
+	}
+
+	@keyframes sci-name-lock {
+		from {
+			text-shadow: 0 0 16px color-mix(in oklab, var(--gold-8) 55%, transparent);
+		}
+		to {
+			text-shadow: 0 0 0 transparent;
+		}
+	}
+</style>

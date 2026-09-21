@@ -29,7 +29,7 @@ const year = new Date().getFullYear();
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#fdfcfd" media="(prefers-color-scheme: light)" />
@@ -84,7 +84,7 @@ const year = new Date().getFullYear();
 <style>
 	.skip-link {
 		position: absolute;
-		left: var(--space-page);
+		inset-inline-start: var(--space-page);
 		top: 0.75rem;
 		z-index: 100;
 		transform: translateY(-160%);
