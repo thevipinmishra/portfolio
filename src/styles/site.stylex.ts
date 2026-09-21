@@ -41,7 +41,10 @@ export const layout = stylex.create({
 		width: '100%',
 		maxWidth: '72rem',
 		marginInline: 'auto',
-		paddingInline: space.page,
+		paddingInline: {
+			default: `calc(${space.page} + var(--space-inner))`,
+			'@media (min-width: 48rem)': space.page,
+		},
 	},
 	section: {
 		paddingBlock: `clamp(3.5rem, 10vw, ${space['4xl']})`,
@@ -124,7 +127,10 @@ export const hero = stylex.create({
 		width: '100%',
 		maxWidth: '72rem',
 		marginInline: 'auto',
-		paddingInline: space.page,
+		paddingInline: {
+			default: `calc(${space.page} + var(--space-inner))`,
+			'@media (min-width: 48rem)': space.page,
+		},
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'flex-start',
@@ -520,7 +526,10 @@ export const footer = stylex.create({
 		gap: space.md,
 		maxWidth: '72rem',
 		marginInline: 'auto',
-		paddingInline: space.page,
+		paddingInline: {
+			default: `calc(${space.page} + var(--space-inner))`,
+			'@media (min-width: 48rem)': space.page,
+		},
 		fontFamily: fonts.body,
 		fontSize: '0.8125rem',
 		color: colors.muted,
