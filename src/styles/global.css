@@ -13,6 +13,7 @@
 		-webkit-text-size-adjust: 100%;
 		text-size-adjust: 100%;
 		scroll-behavior: smooth;
+		overflow-x: clip;
 		/* Reserve scrollbar space so content width doesn't jump when overflow appears. */
 		scrollbar-gutter: stable;
 	}
