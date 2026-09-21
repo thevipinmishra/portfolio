@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="V">
-  <!-- Mauve ground + gold V — quiet mark for browser chrome -->
-  <rect width="32" height="32" rx="7" fill="#211f26"/>
-  <path
-    d="M9.2 8.4h3.05l3.75 12.05L19.75 8.4H22.8L17.15 24.1h-2.3L9.2 8.4Z"
-    fill="#978365"
-  />
-</svg>
