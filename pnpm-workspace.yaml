@@ -1,6 +1,11 @@
 packages:
   - '.'
+ignoreWorkspaceRootCheck: true
 allowBuilds:
   esbuild: false
+  workerd: true
 minimumReleaseAgeExclude:
   - astro@7.3.1
+  - '@cloudflare/unenv-preset@2.16.2'
+  - miniflare@5.20260921.0-alpha
+  - wrangler@4.136.1
