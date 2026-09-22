@@ -1,6 +1,7 @@
 ---
 import * as stylex from '@stylexjs/stylex';
 import { Font } from 'astro:assets';
+import ScrollReveal from '../components/ScrollReveal.astro';
 import ThemeFloat from '../components/ThemeFloat.astro';
 import { layout, footer } from '../styles/site.stylex';
 import '../styles/global.css';
@@ -78,6 +79,11 @@ const year = new Date().getFullYear();
 				<span>© {year}</span>
 			</div>
 		</footer>
+		<ScrollReveal />
+		<script>
+			import { initSounds } from '../lib/sounds';
+			initSounds();
+		</script>
 	</body>
 </html>
 

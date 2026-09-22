@@ -172,6 +172,8 @@ const githubHref = profile.html_url || IDENTITY.github;
 							href={mailHref}
 							class:list={[btnPrimary.className, 'btn-primary']}
 							style={btnPrimary.style}
+							data-cuelume-press="pulse"
+							data-cuelume-release
 						>
 							<Icon svg={icons.letter} />
 							{IDENTITY.email}
@@ -182,6 +184,8 @@ const githubHref = profile.html_url || IDENTITY.github;
 							style={btnGhost.style}
 							target="_blank"
 							rel="noopener noreferrer"
+							data-cuelume-press="scan"
+							data-cuelume-release
 						>
 							<Icon svg={icons.github} />
 							GitHub
@@ -209,7 +213,11 @@ const githubHref = profile.html_url || IDENTITY.github;
 		<div class={container.className} style={container.style}>
 			<div class={aboutGrid.className} style={aboutGrid.style}>
 				<div>
-					<div class={sectionHead.className} style={sectionHead.style}>
+					<div
+						class={sectionHead.className}
+						style={sectionHead.style}
+						data-reveal="veil"
+					>
 						<h2
 							id="about-title"
 							class={sectionTitle.className}
@@ -227,7 +235,7 @@ const githubHref = profile.html_url || IDENTITY.github;
 						</div>
 					</div>
 				</div>
-				<div>
+				<div data-reveal="soft">
 					<p class={aboutBody.className} style={aboutBody.style}>
 						{ABOUT.body}
 					</p>
@@ -264,22 +272,34 @@ const githubHref = profile.html_url || IDENTITY.github;
 		aria-labelledby="skills-title"
 	>
 		<div class={container.className} style={container.style}>
-			<div class={sectionHead.className} style={sectionHead.style}>
+			<div
+				class={sectionHead.className}
+				style={sectionHead.style}
+				data-reveal="veil"
+			>
 				<h2 id="skills-title" class={sectionTitle.className} style={sectionTitle.style}>
 					Stack I ship with.
 				</h2>
 			</div>
-			<p class={lede.className} style={lede.style}>
+			<p class={lede.className} style={lede.style} data-reveal="soft">
 				Frontend, backend, data, and AI. What I actually ship.
 			</p>
 			<div class={skillGroups.className} style={skillGroups.style}>
 				{
 					skillRows.map((group) => (
-						<div class={skillGroup.className} style={skillGroup.style}>
+						<div
+							class={skillGroup.className}
+							style={skillGroup.style}
+							data-reveal="soft"
+						>
 							<p class={skillLabel.className} style={skillLabel.style}>
 								{group.label}
 							</p>
-							<ul class={skillList.className} style={skillList.style}>
+							<ul
+								class={skillList.className}
+								style={skillList.style}
+								data-reveal="chips"
+							>
 								{group.items.map((item) => (
 									<li class={skillChip.className} style={skillChip.style}>
 										{item.svg ? (
@@ -312,7 +332,11 @@ const githubHref = profile.html_url || IDENTITY.github;
 		aria-labelledby="work-title"
 	>
 		<div class={container.className} style={container.style}>
-			<div class={sectionHead.className} style={sectionHead.style}>
+			<div
+				class={sectionHead.className}
+				style={sectionHead.style}
+				data-reveal="veil"
+			>
 				<h2 id="work-title" class={sectionTitle.className} style={sectionTitle.style}>
 					Selected projects.
 				</h2>
@@ -320,7 +344,11 @@ const githubHref = profile.html_url || IDENTITY.github;
 			<ul class={projectList.className} style={projectList.style}>
 				{
 					PROJECTS.map((project) => (
-						<li class={projectItem.className} style={projectItem.style}>
+						<li
+							class={projectItem.className}
+							style={projectItem.style}
+							data-reveal="soft"
+						>
 							<article class={projectBody.className} style={projectBody.style}>
 								<div class={projectHeading.className} style={projectHeading.style}>
 									<h3 class={projectName.className} style={projectName.style}>
@@ -356,7 +384,11 @@ const githubHref = profile.html_url || IDENTITY.github;
 		aria-labelledby="contact-title"
 	>
 		<div class={container.className} style={container.style}>
-			<div class={sectionHead.className} style={sectionHead.style}>
+			<div
+				class={sectionHead.className}
+				style={sectionHead.style}
+				data-reveal="veil"
+			>
 				<h2
 					id="contact-title"
 					class={sectionTitle.className}
@@ -365,15 +397,21 @@ const githubHref = profile.html_url || IDENTITY.github;
 					Say hello.
 				</h2>
 			</div>
-			<p class={lede.className} style={lede.style}>
+			<p class={lede.className} style={lede.style} data-reveal="soft">
 				Open to full-stack roles and product work.
 			</p>
-			<div class={contactPanel.className} style={contactPanel.style}>
+			<div
+				class={contactPanel.className}
+				style={contactPanel.style}
+				data-reveal="soft"
+			>
 				<div class={contactActions.className} style={contactActions.style}>
 					<a
 						href={mailHref}
 						class:list={[btnPrimary.className, 'btn-primary']}
 						style={btnPrimary.style}
+						data-cuelume-press="pulse"
+						data-cuelume-release
 					>
 						<Icon svg={icons.letter} />
 						{IDENTITY.email}
@@ -384,6 +422,8 @@ const githubHref = profile.html_url || IDENTITY.github;
 						style={btnGhost.style}
 						target="_blank"
 						rel="noopener noreferrer"
+						data-cuelume-press="scan"
+						data-cuelume-release
 					>
 						<Icon svg={icons.github} />
 						GitHub
